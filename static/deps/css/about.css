@@ -1,0 +1,167 @@
+.description{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.desc_text{
+    width: 380px;
+    height: 550px;    
+
+}
+.desc_text p{
+   
+    padding-top: 285px;
+    padding-left: 30px;
+    text-align: justify;
+   
+}
+.description_text{
+    width: 100%;
+    background-color: #FADADD;
+}
+.description_text p{
+    padding: 50px 0;
+    text-align: center;
+    
+}
+.purpose{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.purpose_text p{
+    padding: 0 50px;
+}
+.structure{
+    background-color: #FADADD;
+    padding: 35px 0;
+    text-align: center;
+
+}
+.column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modyl{
+    width: 420px;
+    height: 600px;
+    background-color: white;
+    margin-left: 50px
+}
+.people{
+    display: flex;
+    justify-content: center;
+}
+.person{
+    width: 300px;
+    padding: 20px;
+}
+
+
+     /* Секция об основателе */
+     .founder-section {
+        padding: 60px 0;
+        background-color: white;
+    }
+    
+    .founder-container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        max-width: 900px;
+
+    }
+    
+    .founder-photo {
+        width: 300px;
+        border-radius: 50%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .founder-info h2 {
+        color: #e67e7e;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    /* Секция о курсе */
+    .course-section {
+        padding: 60px 0;
+        background-color: #f5f5f5;
+    }
+    
+    .course-cards {
+        display: flex;
+        gap: 30px;
+        margin-top: 40px;
+    }
+    
+    .course-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        flex: 1;
+        transition: transform 0.3s;
+    }
+    
+    .course-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .course-card.free {
+        border-top: 5px solid #4CAF50;
+    }
+    
+    .course-card.premium {
+        border-top: 5px solid #e67e7e;
+    }
+    
+    .price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 20px 0;
+    }
+    
+    .price.free {
+        color: #4CAF50;
+    }
+    
+    .price.premium {
+        color: #e67e7e;
+    }
+    .container_a {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+
+    @media (max-width: 768px) {
+    .founder-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-card {
+        width: 100%;
+    }
+}

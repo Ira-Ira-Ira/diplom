@@ -1,0 +1,120 @@
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    margin: 0 10px 20px 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card_cont {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lesson-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.lesson-header h1 {
+    color: #720068;
+    border-bottom: 2px solid #a9349f;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.lesson-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.lesson-content h2 {
+    color: #2980b9;
+    margin-top: 25px;
+}
+
+.lesson-content h3 {
+    color: #16a085;
+    margin-top: 20px;
+}
+
+.lesson-video, 
+.lesson-image {
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.materials-section {
+    margin: 40px 0;
+}
+
+.material-card {
+    background-color: white;
+    border-left: 4px solid #16a085;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.material-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.material-card h3 {
+    color: #16a085;
+    margin: 0 0 10px;
+    font-size: 1.2em;
+}
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+
+}
+.nav-buttons{
+    display: flex;
+}
+.lesson-progress {
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+
+/* Уведомления */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+}

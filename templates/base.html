@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    {% block css_about %} {% endblock css_about %}
+    {% block css_modules %} {% endblock %}
+
+    {% block css_gallery%} {% endblock css_gallery %}
+    {% block css_reviews%} {% endblock css_reviews %}
+
+
+    <link rel="stylesheet" href="{% static 'deps/css/button.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/user.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/contacts.css' %}">
+
+
+   
+
+
+
+   
+    <link rel="preload" href="{% static 'deps/fonts/Jost-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    
+    <script src={% static "deps/js/script.js" %} async></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="{% url 'main:index' %}">Цветочное Ателье</a></div>
+
+    
+            <button class="burger" id="burger">
+                ☰
+            </button>
+
+            <ul class="menu" id="menu">
+                <li><a href="{% url 'main:about' %}">О курсе</a></li>
+                <li><a href="{% url 'main:gallery' %}">Галерея</a></li>
+                <li><a href="{% url 'main:reviews' %}">Отзывы</a></li>
+                <li><a href="{% url 'module_list' %}">Модули курса</a></li>
+                <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
+                <li><a href="{% url 'users:exam' %}">Экзамен</a></li>
+                <li><a href="{% url 'users:login' %}">Личный кабинет</a></li>
+            </ul>
+
+        
+            <div class="buttons">
+                <a href="{% url 'module_list' %}" class="btn btn-purple">Пройти курс</a>
+                <a href="#section1" class="btn btn-green">Записаться</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {%block about%}{%endblock%}
+        {%block works%}{%endblock%}
+        {%block reviews%}{%endblock%}
+        {%block login%}{%endblock%}
+        {%block registration%}{%endblock%}
+        {%block profile%}{%endblock%}
+        {%block description %}{%endblock%}
+        {%block gallery%}{%endblock%}
+        {%block structure%}{%endblock%}
+        {%block  teacher%}{% endblock%}
+
+        {%block faq-container%}{%endblock%}
+        {%block  modules%}{% endblock%}
+
+        {% block module_1%}{% endblock%}
+        {%block catalog%}{% endblock%}
+        {%block lesson%}{% endblock%}
+        {%block exam%}{% endblock%}
+        {%block exam_suc%}{% endblock%}
+        {% block exam_f %}{% endblock%}
+        {% block contacts%}{% endblock%}
+        {%block feedback%}{%endblock%}
+
+
+
+
+
+
+
+       
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>О нас</h3>
+                <p>Приглашаем на курсы флористики и творческие мастер-классы в уютном пространстве, где рождаются красота и вдохновение.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <ul>
+                    <li><a href="mailto:info@flowers.com">flowers.ulyanovsk@mail.ru</a></li>
+                    <li><a href="tel:+1234567890">+7 (951) 092-49-60</a></li>
+                    <li>г. Ульяновск, ул. Спасская, д. 12</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Главная</h3>
+                <ul class="social-links">
+                    <li><a href="{%url "main:about" %}">О курсе</a></li>
+                    <li><a href="{%url "main:gallery" %}">Галерея</a></li>
+                    <li><a href="{%url "main:reviews" %}">Отзывы</a></li>
+                    <li><a href="#">Модули курса</a></li>
+                    <li><a href="{%url "users:login" %}">Личный кабинет</a></li>
+
+
+                </ul>
+            </div>
+           
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Цветочные секреты. Все права защищены.</p>
+        </div>
+    </footer>
+
+    </main>
+
+
+    
+</body>
+</html>

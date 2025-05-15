@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_modules %}
+<link rel="stylesheet" href="{% static 'deps/css/modules.css' %}">    
+
+{% endblock css_modules %}
+{% block profile %}
+
+    <main class="dashboard-main">
+        <aside class="sidebar">
+            <div class="user-info">
+                {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" alt="Аватар пользователя" width="200" height="200" style="border-radius: 50%; object-fit: cover; class="user-avatar"">
+            
+                {% else %}
+                    <img src="{% static 'images/default-avatar.jpg' %}" alt="Аватар по умолчанию" class="user-avatar">
+                {% endif %}
+                <h2 class="username">
+                    {% if user.get_full_name %}
+                        {{ user.get_full_name }}
+                    {% else %}
+                        {{ user.username }}
+                    {% endif %}
+                </h2>
+                <p class="user-status">Студент курса</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="{% url 'users:logout' %}" class="sidebar-link logout-link">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
+          
+            </nav>
+        </aside>
+
+        <section class="content">
+            <div class="welcome-message">
+                <h2>Добро пожаловать, 
+                    {% if user.first_name %}
+                        {{ user.first_name }}!
+                    {% else %}
+                        {{ user.username }}!
+                    {% endif %}
+                </h2>
+                <p>Продолжайте изучать материалы курса и выполняйте задания.</p>
+            </div>
+
+
+            <div class="exam-results">
+                <h3>Результаты экзаменов</h3>
+                {% if user.examresult_set.all %}
+                <div class="results-table">
+                    <div class="table-header">
+                        <div>Курс</div>
+                        <div>Результат</div>
+                        <div>Статус</div>
+                        <div>Дата</div>
+                    </div>
+                    {% for result in user.examresult_set.all %}
+                    <div class="table-row {% if result.passed %}passed{% else %}failed{% endif %}">
+                        <div>{{ result.exam.course.title }}</div>
+                        <div>{{ result.score }}%</div>
+                        <div>{% if result.passed %}Успешно{% else %}Не пройден{% endif %}</div>
+                        <div>{{ result.completed_at|date:"d.m.Y" }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p>Вы пока не проходили экзамены.</p>
+                {% endif %}
+            </div>
+
+
+            <div class="review-form-container">
+                <h2>Оставьте ваш отзыв</h2>
+                <form method="post" action="{% url 'users:create_review' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_text">Ваш отзыв:</label>
+                        <textarea id="id_text" name="text" rows="5" placeholder="Напишите ваш отзыв здесь..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-purple">Отправить отзыв</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+  
+{% endblock %}

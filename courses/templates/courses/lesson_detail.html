@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_modules %}
+<link rel="stylesheet" href="{% static 'deps/css/modules.css' %}">
+{% endblock %}
+
+{% block lesson %}
+<div class="lesson-container">
+    <!-- Заголовок урока и прогресс -->
+    <div class="lesson-header">
+        <h1>{{ lesson.title }}</h1>
+        {% if progress %}
+        <div class="lesson-progress">
+            <span>Прогресс: {{ progress.completed_count }}/{{ progress.total_count }} уроков</span>
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ progress.percent }}%"></div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if is_completed %}   
+    <div class="alert alert-success">
+        Этот урок уже пройден {{ completed_at|date:"d.m.Y" }}
+    </div>
+    {% endif %}
+
+  <!-- Контент урока -->
+    {% if lesson.video_file %}
+    <div class="lesson-video">
+        <video width="100%" height="400" controls>
+            <source src="{{ lesson.video_file.url }}" type="video/mp4">
+            Ваш браузер не поддерживает тег video.
+        </video>
+    </div>
+    {% endif %}
+
+    {% if lesson.image %}
+    <div class="lesson-image">
+        <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}" class="img-fluid">
+    </div>
+    {% endif %}
+
+    <div class="lesson-content">
+        {{ lesson.content|linebreaks }}
+    </div>
+
+    <!-- Материалы урока -->
+    {% if lesson.materials.all %}
+    <div class="materials-section">
+        <h3>Материалы урока</h3>
+        {% for material in lesson.materials.all %}
+        <div class="material-card">
+            <h4>{{ material.title }}</h4>
+            <p>{{ material.description }}</p>
+            {% if material.image %}
+                <img src="{{ material.image.url }}" alt="{{ material.title }}" class="img-fluid"  height="300px">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+  
+   
+
+    <div class="lesson-navigation">
+        <div class="nav-buttons">
+            {% if lesson.previous_lessons.first %}
+                <a href="{% url 'lesson_detail' pk=lesson.previous_lessons.first.id %}" class="btn btn-purple">
+                    ← Вернуться назад
+                </a>
+            {% else %}
+                <a href="{% url 'module_list' %}" class="btn btn-purple">
+                    ← Вернуться к каталогу
+                </a>
+            {% endif %}
+            
+            <form action="{% url 'complete_lesson' lesson.id %}" method="post">
+                {% csrf_token %}
+                <a class="btn btn-beige" {% if is_completed %}disabled{% endif %}>
+                    {% if is_completed %}✓ Урок завершен{% else %}Завершить урок{% endif %}
+                </a>
+            </form>
+            
+            {% if lesson.next_lesson %}
+                <a href="{% url 'lesson_detail' pk=lesson.next_lesson.id %}" class="btn btn-green">
+                   Идем далее →
+                </a>
+            {% else %}
+                <button class="btn btn-primary" disabled>Это последний урок</button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

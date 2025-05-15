@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_modules %}
+<link rel="stylesheet" href="{% static 'deps/css/modules.css' %}">    
+
+{% endblock css_modules %}
+{% block exam%}
+<div class="exam-container">
+    <h1 class="exam-title">{{ exam.title }}</h1>
+    <p class="exam-description">{{ exam.description }}</p>
+    
+    <form method="post" class="exam-form">
+        {% csrf_token %}
+        {% for question in questions %}
+        <div class="question-card">
+            <h3 class="question-text">{{ forloop.counter }}. {{ question.text }}</h3>
+            <div class="answers-container">
+                {% for answer in question.answer_set.all %}
+                <div class="answer-option">
+                    <input type="radio" id="answer_{{ answer.id }}" name="question_{{ question.id }}"  value="{{ answer.id }}" required>
+                    <label for="answer_{{ answer.id }}">{{ answer.text }}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-green">Завершить экзамен</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_contacts %}
+<link rel="stylesheet" href="{% static 'deps/css/contacts.css' %}">    
+{% endblock %}
+
+{% block contacts %}
+<div class="contacts-container">
+    <div class="contacts-header">
+        <h1>Как нас найти</h1>
+        <p>Мы всегда рады помочь вам с вопросами о курсах и сертификатах</p>
+    </div>
+
+    <div class="contacts-grid">
+       
+        <div class="contacts-info">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Где проходят курсы?</h3>
+                <p>г. Ульяновск, ул. Спасская, д. 12 (2-й этаж, вход через арку с цветочной вывеской).
+                    Рядом с Парком Дружбы Народов, 5 минут пешком от остановки «Центральный рынок».</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Телефоны</h3>
+                <p>+7 (951) 092-49-60 (Ирина Вячеславовна)</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Электронная почта</h3>
+                <p>flowers.ulyanovsk@mail.ru</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-clock"></i>
+                <h3>Часы работы</h3>
+                <p>Пн-Пт: 9:00 - 18:00<br>Сб-Вс: выходной</p>
+            </div>
+        </div>
+
+        <!-- Блок с картой -->
+        <div class="contacts-map">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
+                    width="100%" height="400" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Блок с соцсетями -->
+    <div class="social-section">
+        <h2>Мы в социальных сетях</h2>
+        <div class="social-links">
+            <a href="https://vk.com/isaratovkina" target="_blank" class="social-link vk">
+                <i class="fab fa-vk"></i>
+                ВКонтакте
+            </a>
+            <a href="https://t.me/mikkrobb" target="_blank" class="social-link tg">
+                <i class="fab fa-telegram"></i>
+                Telegram
+            </a>
+            <a href="https://ru.pinterest.com/saratovkina13_/_profile/" target="_blank" class="social-link yt">
+                <i class="fab fa-youtube"></i>
+                Pinterest
+            </a>
+        </div>
+    </div>
+
+    <div class="certification-block">
+        <div class="certification-logo">
+            <img src="{% static 'deps/img/photo_2025-05-14_15-26-23.jpg' %}">
+        </div>
+        <div class="certification-info">
+            <h2>Образец сертификата</h2>
+           
+            <p>Сертификат подтверждает прохождение курса и не является документом государственного образца.<br>
+                Электронная версия отправляется на email в течение 3 дней после завершения программы.</p>
+
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{%block feedback%}
+<section class="feedback-section"  id="section1">
+    <div class="feedback-container">
+        <h2>Запишитесь на курс!</h2>
+        <p>Если у вас есть вопросы или предложения, пожалуйста, заполните форму ниже, и мы свяжемся с вами в ближайшее время.</p>
+        <form class="feedback-form">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Введите ваш телефон">
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" placeholder="Введите ваше сообщение" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Отправить</button>
+        </form>
+    </div>
+</section>
+{%endblock%}
+

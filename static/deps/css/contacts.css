@@ -1,0 +1,156 @@
+.contacts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contacts-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contacts-header h1 {
+    color: black;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.contacts-header p {
+    color:  black;
+    font-size: 1.2rem;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.contact-card i {
+    font-size: 2rem;
+    color: rgba(6, 6, 6, 0.753);
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: rgba(6, 6, 6, 0.753);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: rgba(6, 6, 6, 0.753);
+    line-height: 1.6;
+}
+
+.social-section {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.social-section h2 {
+    color: rgba(6, 6, 6, 0.753);
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+}
+
+.social-link i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.social-link.vk { background: #FADADD; }
+.social-link.tg { background: #FADADD; }
+.social-link.yt { background: #FADADD; }
+
+.certification-block {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.certification-logo {
+    flex: 1;
+    background: #C8A2C8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.certification-logo img {
+    max-width: 400px;
+}
+
+.certification-info {
+    flex: 2;
+    padding: 40px;
+}
+
+.certification-info h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.certification-info p {
+    color: #34495e;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.certificate-sample {
+    margin-top: 30px;
+    border: 1px solid #eee;
+    padding: 15px;
+    display: inline-block;
+}
+
+.certificate-sample img {
+    max-width: 300px;
+    height: auto;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certification-block {
+        flex-direction: column;
+    }
+}

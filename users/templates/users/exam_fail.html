@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_modules %}
+<link rel="stylesheet" href="{% static 'deps/css/modules.css' %}">    
+{% endblock css_modules %}
+
+{% block exam_f %}
+<div class="result fail">
+    <h1>😕 Попробуйте ещё раз</h1>
+    <p>Ваш результат: {{ score }}% (необходимо {{ passing_score }}%)</p>
+    <a href="{% url 'users:exam' %}" class="btn btn-green">Пересдать</a>
+</div>
+{% endblock %}

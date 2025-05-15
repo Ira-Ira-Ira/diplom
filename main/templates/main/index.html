@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{%block about%}
+
+<section class="about">
+    <div class="about_block">
+        <img src={% static "deps/img/dd456a9cdf8fff18360dbbcbe8f4a796.jpg" %} width="450px" height="450px" >
+        <div class="about_text">
+            <h1>Немного о нас</h1>
+            <p class="other_text">Наша студия «Цветочное Ателье» в Ульяновске — это пространство, где каждый может
+                 научиться говорить на языке цветов, даже если вы никогда не держали в руках секатор.Это ваш старт в мире флористики! Даже если вы новичок, после курса вы сможете создавать букеты, которые захочется подарить или поставить дома на самое видное место.</p>
+        <a href="{% url 'module_list' %}" class="btn btn-purple">Пройти курс</a>
+        </div>
+    </div>
+    <div class="about_block">
+        <div class="about_text2">
+            <h1>Что мы предлагаем</h1>
+            <p class="other_text"> Курс «Цветочные секреты» нацелен на получение знаний по основам флористики: подбор, сочетание и уход за цветами.
+                Проходите уроки в любое время и в любом удобном для Вас месте.</p>
+        <a href="{% url 'module_list' %}" class="btn btn-purple">Программа курса</a>
+        </div>
+        
+        <img src={% static "deps/img/dba6c7c256bee6f919302cf5dcd5912b.jpg" %} width="450px" height="450px" >
+
+    </div>
+</section>
+{%endblock%}
+
+
+{%block works%}
+<section class ="works">
+    <div class =  "works_text">
+        <h1>Работы наших учениц</h1>
+    </div>
+    <Div class = "works_row">
+        <img src={% static "deps/img/работы учениц/0UhQKrJ8dpI.jpg" %} width="380px" height="420x">
+        <img src={% static "deps/img/работы учениц/bKp15I3vVwg.jpg" %} width="380px" height="420px">
+        <img src={% static "deps/img/работы учениц/COfC0V2A--M.jpg" %} width="350px" height="420px">
+    </Div>
+    <a href="{%url "main:gallery" %}" class="btn btn-green">Галерея работ</a>
+
+</section>
+{%endblock%}
+
+
+{%block structure%}
+
+<section class="structure">
+    <h1>
+        Наполнение курса
+    </h1>
+    <p>
+        Данный курс состоит из 7 уроков.
+    </p>
+    <div class="column">
+        <img src={% static "deps/img/fefb1d4da8f90ade2c193a888f09efd9.jpg" %} width="420px" height="500px">
+        <div class="modyl">
+            <ul class="modyl-links">
+                <li><a href="#" target="_blank">Модуль 1: Инструменты и материалы</a></li>
+                <li><a href="#" target="_blank">Модуль 2: Колористика</a></li>
+                <li><a href="#" target="_blank">Модуль 3: Хранение срезанных цветов</a></li>
+                <li><a href="#" target="_blank">Модуль 4: Обработка цветов</a></li>
+                <li><a href="#" target="_blank">Модуль 5: Каталог по цветам</a></li>
+                <li><a href="#" target="_blank">Модуль 6: Выразительные средства</a></li>
+                <li><a href="#" target="_blank">Модуль 7:  Выбор состава букета</a></li>
+            </ul>
+        </div>
+    </div>
+    <a href="{% url 'module_list' %}" class="btn btn-purple">Все модули</a>
+
+</section>
+{%endblock%}
+
+
+
+{%block faq-container%}
+
+<section class="faq-container">
+    <h1>Часто задаваемые вопросы</h1>
+    
+    <div class="faq-item">
+        <button class="faq-question"><p class="other_text">1. Нужно покупать цветы самостоятельно?</p></button>
+        <div class="faq-answer">
+            <p class="other_text">Да, все растения необходимо покупать самостоятельно. Не нужно копировать состав
+                из уроков, можно брать самые простые и доступные цветы, сезонные травы и растения.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question"><p class="other_text">2. Выдается ли сертификат по завершению курса?</p></button>
+        <div class="faq-answer">
+            <p class="other_text">После успешного прохождения курса выдается сертификат "Курс прослушан".</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question"><p class="other_text">3. Где можно купить все инструменты и материалы?</p></button>
+        <div class="faq-answer">
+            <p class="other_text">Все материалы можно заказать через специалированные интернет-магазины.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question"><p class="other_text">4.Как общаться с преподавателем?</p></button>
+        <div class="faq-answer">
+            <p class="other_text">Общение с наставником происходит по электронной почте.</p>
+        </div>
+    </div>
+</section>
+
+<section class="feedback-section" id="section1">
+    <div class="feedback-container">
+        <h2>Обратная связь</h2>
+        <p class="other_text">Если у вас есть вопросы или предложения, заполните форму, и мы свяжемся с вами.</p>
+
+        <form method="post" action="{% url 'main:feedback' %}" class="feedback-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Имя:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.phone.id_for_label }}">Телефон:</label>
+                {{ form.phone }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}">Сообщение:</label>
+                {{ form.message }}
+            </div>
+            <button type="submit" class="submit-btn">Отправить</button>
+        </form>
+    </div>
+</section>
+{%endblock%}
+
+
+
+
+
+
+
+     
+
+       
+
+
+       
+
+  
+  

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_modules %}
+<link rel="stylesheet" href="{% static 'deps/css/modules.css' %}">    
+{% endblock css_modules %}
+
+{% block exam_suc%}
+<div class="exam-success-container">
+    <div class="success-card">
+        <img src="{% static 'deps/img/e1f88dfb11f280f3395361c2fcc1eeec.jpg' %}" alt="Успех" class="success-icon">
+        <h1>Поздравляем!</h1>
+        <p>Вы успешно прошли экзамен по курсу "{{ exam.course.title }}" с результатом {{ score }}%.</p>
+        <p>На вашу почту <strong>{{ user.email }}</strong> будет отправлен сертификат в течение 3 рабочих дней.</p>
+        <p>С вами свяжется наш менеджер для уточнения деталей.</p>
+        <a href="{% url 'user:profile' %}" class="btn btn-purple">Вернуться в профиль</a>
+    </div>
+</div>
+
+{% endblock %}

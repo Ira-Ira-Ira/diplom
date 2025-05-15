@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="success-section">
+    <div class="success-container">
+        <h2>Спасибо за ваш отзыв!</h2>
+        <p>Мы получили ваше сообщение и свяжемся с вами в ближайшее время.</p>
+        <a href="{% url 'main:index' %}" class="btn btn-green">На главную</a>
+    </div>
+</section>
+{% endblock %}

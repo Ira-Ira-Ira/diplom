@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block login%}
+
+    <main class="auth-main">
+        <section class="auth-form">
+            <h2>Авторизация</h2>
+            <form method="post" action='{% url "users:login" %}'>
+
+                {% csrf_token %}
+                    
+                {% for item in login_form %}
+                    {{ item }}
+                {% endfor %}
+
+                <span class="auth_reg">{{login_form.non_field_errors}}</span>
+                <button type="submit" class="btn btn-purple" name="login">Войти</button>
+                <div class="auth-links">
+                    <a href="#">Забыли пароль?</a>
+                    <a href="{% url "users:signup" %}">Регистрация</a>
+
+                </div>
+            </form>
+        </section>
+    </main>
+   {%endblock%}

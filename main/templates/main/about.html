@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_about %}
+<link rel="stylesheet" href="{% static 'deps/css/about.css' %}">    
+
+{% endblock css_about %}
+
+
+{% block description %}
+<section class="description">
+    <div class="desc_image">
+        <img src="{% static 'deps/img/8cfeffcd4c20e8438d5c32e8c9fe9d3a.jpg' %}" width="380px" height="550px">
+    </div>
+    <div class="desc_text">
+        <p class="other_text">
+            Добро пожаловать на базовый курс флористики «Цветочные секреты»!<br>
+            Приглашаем вас окунуться в мир цветов и творчества на нашем бесплатном офлайн-курсе, 
+            созданном для начинающих. За 7 уроков вы освоите основы флористики,  а также узнаете секреты работы с живыми растениями.
+        </p>
+    </div>
+    <div class="desc_image">
+        <img src="{% static 'deps/img/7b50b11136085630e6b0abd595e602f5.jpg' %}" width="380px" height="550px">
+    </div>
+</section>
+
+<section class="description_text">
+    <p class="other_text">
+        Мы дадим вам доступ ко всем урокам. Вам не нужно будет выполнять задания. 
+        Вы сможете задавать вопросы и получать на них ответы через почту.
+        По окончании базового курса вы получите именной сертификат с  печатью на электронную почту.
+        Это не только приятный бонус, но и первый шаг к портфолию будущего флориста. 
+    </p>
+</section>
+
+<section class="founder-section">
+    <div class="container">
+        <div class="founder-container">
+        <img src="{% static 'deps/img/photo_2025-05-14_15-37-28.jpg' %}" alt="Основатель курса" class="founder-photo">
+
+           
+            <div class="founder-info">
+                <h2>Кто ведёт курс?</h2>
+                <p>Меня зовут Ирина  — я профессиональный флорист с 3-летним опытом работы.
+                    Я разрабатываю программы, которые помогают новичкам быстро погрузиться в искусство флористики.
+                    Мои ученики ценят курс за практичность, ясные объяснения и вдохновляющую атмосферу. Для меня важно, чтобы каждый унес с занятий не только знания, но и уверенность в своих силах.</p>
+                <p>Моя миссия - сделать флористику доступной для всех, кто хочет создавать красоту своими руками.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock description %}
+
+{% block structure %}
+<section class="structure">
+    <h1>Наполнение курса</h1>
+    <p>Данный курс состоит из 7 уроков.</p>
+    <div class="column">
+        <img src="{% static 'deps/img/fefb1d4da8f90ade2c193a888f09efd9.jpg' %}" width="420px" height="500px">
+        <div class="modyl">
+            <ul class="modyl-links">
+                <li><a href="#" target="_blank">Модуль 1: Инструменты и материалы</a></li>
+                <li><a href="#" target="_blank">Модуль 2: Колористика</a></li>
+                <li><a href="#" target="_blank">Модуль 3: Хранение срезанных цветов</a></li>
+                <li><a href="#" target="_blank">Модуль 4: Обработка цветов</a></li>
+                <li><a href="#" target="_blank">Модуль 5: Каталог по цветам</a></li>
+                <li><a href="#" target="_blank">Модуль 6: Выразительные средства</a></li>
+                <li><a href="#" target="_blank">Модуль 7: Выбор состава букета</a></li>
+            </ul>
+        </div>
+    </div>
+    <a href="{% url 'module_list' %}" class="btn btn-purple">Все модули</a>
+</section>
+{% endblock structure %}
+
+
+{% block teacher%}
+    
+    <!-- Секция о курсе -->
+    <section class="course-section">
+        <div class="container_a">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #e67e7e;">Обучающие программы</h2>
+            
+            <div class="course-cards">
+                <!-- Бесплатный курс -->
+                <div class="course-card free">
+                    <h3>Цветочные секреты</h3>
+                    <p>Бесплатная вводная программа, которая познакомит вас с основами флористики:</p>
+                    <ul>
+                        <li>7 уроков</li>
+                        <li>Основы композиции</li>
+                        <li>Работа с инструментами</li>
+                        <li>Цветовой круг</li>
+                        <li>Сертификат об окончании</li>
+                    </ul>
+                    <div class="price free">Бесплатно</div>
+                    <a href="{% url 'module_list' %}" class="btn btn-green">Начать обучение</a>
+                </div>
+                
+                <!-- Платный курс -->
+                <div class="course-card premium">
+                    <h3>Флорист PRO </h3>
+                    <p>Полная программа для тех, кто хочет стать профессионалом:</p>
+                    <ul>
+                        <li>30 подробных уроков</li>
+                        <li>Создание букета</li>
+                        <li>Свадебная флористика</li>
+                        <li>Сезонные композиции</li>
+                        <li>Бизнес-модуль</li>
+                        <li>Личная консультация и встречи</li>
+                        <li>Сертификат об окончании</li>
+                    </ul>
+                    <div class="price premium">10 000 ₽</div>
+                    <a href="#section1" class="btn btn-purple">Записаться</a>
+                </div>
+            </div>
+            
+          
+        </div>
+    </section>
+    <section class="description_text">
+        <p class="other_text">
+            После бесплатного курса вы сможете продолжить обучение в платной группе, которая проходит раз в месяц в очном формате. 
+            Здесь углубляем знания, работаем над сложными проектами и готовимся к профессиональной деятельности.
+        </p>
+    </section>
+{% endblock teacher %}
+
+{%block feedback%}
+<section class="feedback-section"  id="section1">
+    <div class="feedback-container">
+        <h2>Запишитесь на курс!</h2>
+        <p>Если у вас есть вопросы или предложения, пожалуйста, заполните форму ниже, и мы свяжемся с вами в ближайшее время.</p>
+        <form class="feedback-form">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Введите ваш телефон">
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" placeholder="Введите ваше сообщение" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Отправить</button>
+        </form>
+    </div>
+</section>
+{%endblock%}
+
+

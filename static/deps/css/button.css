@@ -1,0 +1,21 @@
+ .btn {
+    width:110px ;
+    border: none;
+    border-radius: 122px;
+    color: black;
+    text-decoration: none; 
+    text-align: center;
+    padding: 10px 15px;
+}
+
+
+ .btn-green{
+    background-color: #C1E1C1;
+}
+.btn-purple{
+    background-color:#C8A2C8 ;
+}
+.btn-beige{
+    background-color: #FADADD;
+}
+
