@@ -62,9 +62,6 @@
     </div>
     {% endif %}
 
-  
-   
-
     <div class="lesson-navigation">
         <div class="nav-buttons">
             {% if lesson.previous_lessons.first %}
@@ -79,9 +76,9 @@
             
             <form action="{% url 'complete_lesson' lesson.id %}" method="post">
                 {% csrf_token %}
-                <a class="btn btn-beige" {% if is_completed %}disabled{% endif %}>
+                <button type="submit" class="btn btn-beige" {% if is_completed %}disabled{% endif %}>
                     {% if is_completed %}✓ Урок завершен{% else %}Завершить урок{% endif %}
-                </a>
+                </button>
             </form>
             
             {% if lesson.next_lesson %}

@@ -11,7 +11,39 @@
             <form method="post" action='{% url "users:signup" %}'>
                 {% csrf_token %}
 
-                {% if registration_form.non_field_errors %}
+                {% if regist{% extends "base.html" %}
+{% load static %}
+
+{% block registration %}
+<main class="registration-main">
+    <section class="registration-form">
+        <h2>Регистрация на курс</h2>
+        <form method="post" action='{% url "users:signup" %}' enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% if registration_form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {{ registration_form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            {% for item in registration_form %}
+                <div class="form-group">
+                    {{ item.label_tag }}
+                    {{ item }}
+                    {% if item.errors %}
+                        <div class="alert alert-danger">
+                            {{ item.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-green" name="signup">Зарегистрироваться</button>
+        </form>
+    </section>
+</main>
+{% endblock %}ration_form.non_field_errors %}
                     <div class="alert alert-danger">
                         {{ registration_form.non_field_errors }}
                     </div>
