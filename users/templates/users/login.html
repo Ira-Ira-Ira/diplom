@@ -1,29 +1,42 @@
 {% extends "base.html" %}
-
 {% load static %}
 
-
-{% block login%}
-
+{% block login %}
     <main class="auth-main">
         <section class="auth-form">
             <h2>Авторизация</h2>
-            <form method="post" action='{% url "users:login" %}'>
-
+            <form method="post" action="{% url 'users:login' %}">
                 {% csrf_token %}
-                    
-                {% for item in login_form %}
-                    {{ item }}
+
+                <!-- Показываем общие ошибки формы -->
+                {% if login_form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ login_form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                <!-- Рендерим поля формы -->
+                {% for field in login_form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="alert alert-danger">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endfor %}
 
-                <span class="auth_reg">{{login_form.non_field_errors}}</span>
+                <!-- Кнопка отправки -->
                 <button type="submit" class="btn btn-purple" name="login">Войти</button>
+
+                <!-- Ссылки на восстановление пароля и регистрацию -->
                 <div class="auth-links">
                     <a href="#">Забыли пароль?</a>
-                    <a href="{% url "users:signup" %}">Регистрация</a>
-
+                    <a href="{% url 'users:signup' %}">Регистрация</a>
                 </div>
             </form>
         </section>
     </main>
-   {%endblock%}
+{% endblock %}
