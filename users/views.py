@@ -9,12 +9,27 @@ from .forms import ReviewForm
 from .models import UserProgress, Lesson
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
-
 from .models import Exam, Question, Answer, ExamResult
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils import timezone
+from .forms import AvatarUploadForm
 
+@login_required
+def profile_view(request):
+    return render(request, 'users/profile.html', {'user': request.user})
+
+@login_required
+def upload_avatar(request):
+    if request.method == 'POST':
+        form = AvatarUploadForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('users:profile')
+    else:
+        form = AvatarUploadForm(instance=request.user)
+
+    return render(request, 'users/upload_avatar.html', {'form': form})
 
 def exam_view(request, exam_id):
     exam = get_object_or_404(Exam, pk=exam_id)

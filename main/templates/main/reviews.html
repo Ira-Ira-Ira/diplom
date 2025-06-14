@@ -17,6 +17,7 @@
         <div class="review">
             <p class="review-text">{{ review.text }}</p>
             <p class="review-author">- {{ review.author.username }}</p>
+            <p class="review-date">Дата добавления: {{ review.created_at|date:"d.m.Y H:i" }}</p>
         </div>
     {% endfor %}
 </section>

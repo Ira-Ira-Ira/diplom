@@ -25,9 +25,10 @@
                 <p class="user-status">Студент курса</p>
             </div>
             <nav class="sidebar-nav">
-                <a href="{% url 'users:logout' %}" class="sidebar-link logout-link">
+                <a href="{% url 'users:logout' %}"  class='btn btn-purple'> 
                     <i class="fas fa-sign-out-alt"></i> Выйти
                 </a>
+                <a href="{% url 'users:upload_avatar' %}" class="btn btn-green">Изменить аватар</a>
           
             </nav>
         </aside>

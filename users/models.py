@@ -4,6 +4,7 @@ from courses.models import Lesson
 
 class User(AbstractUser):
     avatar = models.ImageField(upload_to='avatars/', default='avatars/default.png')
+    email = models.EmailField(verbose_name='Электронная почта', unique=True)
     
     def get_progress(self):
         total_lessons = Lesson.objects.count()
@@ -21,7 +22,7 @@ class User(AbstractUser):
         last_completed = self.userprogress_set.filter(completed=True).order_by('-completed_at').first()
     
         return {
-        # ... предыдущие данные ...
+     
         'last_completed_lesson': last_completed.lesson if last_completed else None,
         'last_completed_date': last_completed.completed_at if last_completed else None
         }
@@ -35,8 +36,6 @@ class UserProgress(models.Model):
     class Meta:
         unique_together = ('user', 'lesson')
         verbose_name_plural = 'User Progress'
-
-
 
 
 class Exam(models.Model):

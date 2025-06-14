@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_modules %}
+<link rel="stylesheet" href="{% static 'deps/css/user.css' %}">
+{% endblock %}
+
+{% block profile %}
+    <main class="dashboard-main">
+        <aside class="sidebar">
+            <div class="user-info">
+                {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" alt="Аватар пользователя" class="user-avatar">
+                {% else %}
+                    <img src="{% static 'images/default-avatar.jpg' %}" alt="Аватар по умолчанию" class="user-avatar">
+                {% endif %}
+                <h2 class="username">{{ user.get_full_name|default:user.username }}</h2>
+                <p class="user-status">Студент курса</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="{% url 'users:logout' %}" class="btn btn-purple">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
+                <a href="{% url 'users:profile' %}" class="btn btn-green">В профиль</a>
+            </nav>
+        </aside>
+
+        <section class="content">
+            <h2>Загрузите новый аватар</h2>
+            <form method="post" enctype="multipart/form-data" action="{% url 'users:upload_avatar' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-purple">Сохранить</button>
+            </form>
+        </section>
+    </main>
+{% endblock %}

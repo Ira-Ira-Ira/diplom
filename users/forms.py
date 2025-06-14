@@ -4,6 +4,12 @@ from users.models import User
 from main.models import Review
 
 
+
+class AvatarUploadForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['avatar']
+        
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(
         widget=forms.TextInput(attrs={"autofocus": True,
@@ -18,15 +24,23 @@ class UserLoginForm(AuthenticationForm):
 
 class UserRegistrationForm(UserCreationForm):
 
-    email = forms.CharField(
-        widget=forms.EmailInput(
-            attrs={
-                "autofocus": True,
-                "placeholder" : "E-mail",
-                "value": '',
-            }
-        )
+    email = forms.EmailField(
+        label="Электронная почта",
+        error_messages={
+            'invalid': "Введите корректный адрес электронной почты."
+        }
     )
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Пользователь с таким email уже существует.")
+        return email
+
 
     first_name = forms.CharField(
         widget=forms.TextInput(

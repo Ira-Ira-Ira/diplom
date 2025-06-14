@@ -34,3 +34,4 @@ class Review(models.Model):
 
     def str(self):
         return f"Отзыв от {self.author.username}"
+    

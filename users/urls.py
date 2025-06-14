@@ -4,7 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-
 app_name = 'users'
 
 urlpatterns = [
@@ -14,5 +13,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('profile/create-review/', views.create_review, name='create_review'),
     path('exam/', views.exam_view, name='exam'),
+    path('upload-avatar/', views.upload_avatar, name='upload_avatar'),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

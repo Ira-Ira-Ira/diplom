@@ -61,3 +61,4 @@ def reviews(request):
         'latest_reviews': latest_reviews,
     }
     return render(request, 'main/reviews.html', context)
+

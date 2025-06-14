@@ -47,7 +47,7 @@ def lesson_detail(request, pk):  # Используем pk вместо lesson_i
 
 def complete_lesson(request, pk):  # Также используем pk здесь
     if not request.user.is_authenticated:
-        return redirect('login')
+        return redirect('users:login')
     
     lesson = get_object_or_404(Lesson, pk=pk)
     progress, created = UserProgress.objects.update_or_create(

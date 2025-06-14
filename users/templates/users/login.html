@@ -28,12 +28,9 @@
                     </div>
                 {% endfor %}
 
-                <!-- Кнопка отправки -->
                 <button type="submit" class="btn btn-purple" name="login">Войти</button>
-
-                <!-- Ссылки на восстановление пароля и регистрацию -->
+                <p>Еще нет аккаунта?</p>
                 <div class="auth-links">
-                    <a href="#">Забыли пароль?</a>
                     <a href="{% url 'users:signup' %}">Регистрация</a>
                 </div>
             </form>

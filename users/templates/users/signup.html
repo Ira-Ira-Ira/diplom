@@ -8,14 +8,12 @@
         <form method="post" action="{% url 'users:signup' %}" enctype="multipart/form-data">
             {% csrf_token %}
 
-            <!-- Показываем общие ошибки формы -->
             {% if registration_form.non_field_errors %}
                 <div class="alert alert-danger">
                     {{ registration_form.non_field_errors }}
                 </div>
             {% endif %}
 
-            <!-- Рендерим поля формы -->
             {% for field in registration_form %}
                 <div class="form-group">
                     {{ field.label_tag }}
@@ -28,7 +26,6 @@
                 </div>
             {% endfor %}
 
-            <!-- Кнопка отправки -->
             <button type="submit" class="btn btn-green" name="signup">Зарегистрироваться</button>
         </form>
     </section>
