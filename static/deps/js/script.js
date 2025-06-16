@@ -13,3 +13,21 @@ document.querySelectorAll('.faq-question').forEach(button => {
         answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
     });
 });
+
+
+
+
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    const menuLinks = document.querySelectorAll('.menu a');
+
+    burger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+
+    // Закрытие меню при клике на ссылку
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+        });
+    });
