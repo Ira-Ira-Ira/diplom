@@ -104,6 +104,9 @@
 }
 .nav-buttons{
     display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 .lesson-progress {
     margin-top: 10px;
